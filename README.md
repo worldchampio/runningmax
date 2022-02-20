@@ -47,4 +47,6 @@ Where <code>rmax</code> is calculated as explained above. The running maximum is
 ### End subscriber
 Simply subscribes to topic _solution_ and prints to terminal the received JSON-formatted data.
 
+## Test output
+![Running one publisher, one pub/sub and one subscriber](output.png)
 
