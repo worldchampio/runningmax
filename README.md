@@ -13,8 +13,13 @@ Three scripts were then implemented in Python to serve as a 'replica' of the act
         <li>sequence_number - int</li>
     </ul>
   </li>
-  <li><code>max_pubsub.py</code></li>
-  <li><code>end_sub.py</code></li>
+  <li>
+    <code>max_pubsub.py</code> - subscribes to 'rand' and stores the integers in a queue, calculating rolling max for 100 last entries-
+    The result is JSON-formatted and published on topic 'solution'
+  </li>
+  <li>
+    <code>end_sub.py</code> - subscribes to 'solution' and prints it for verification/testing
+  </li>
 </ul>
 
 ### Message flow
