@@ -1,5 +1,5 @@
 # runningmax
-Get runningmax for last N entries from a stream of random ints
+Get runningmax for last N entries from a stream of random ints, using <code>RabbitMQ</code> and the python-<code>Pika</code> library.
 
 ## Test setup
 A local installation of RabbitMQ was setup to run on <code>localhost</code>, port <code>5672</code>.
