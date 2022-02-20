@@ -27,6 +27,24 @@ message = {
 }
 ```
 
-The message _dict_ is published as JSON (json.dumps()).
+The message _dict_ is published as JSON (json.dumps()) on topic _rand_.
 
 ### Running Max subscriber/publisher
+This program subscribes to _rand_, and a _queue_ ( collections.deque) is used as a message container. Incoming messages on _rand_ are decoded with _json.loads()_, and the field _rand_ is extracted and appended to the queue, which has a maximum length of 100. The maximum of this queue is calculated for every new message received, and then published on topic _solution_ on the format:
+
+```
+body_pub = json.loads(body) #body from subscribing to 'rand'
+
+message_out = {
+    "sequence_number" : int(body_pub["sequence_number"]),
+    "rand" : int(body_pub["rand"]),
+    "running_max" : int(rmax)
+}
+```
+
+Where <code>rmax</code> is calculated as explained above. The running maximum is published in the callback method for the _rand_ subscription.
+
+### End subscriber
+Simply subscribes to topic _solution_ and prints to terminal the received JSON-formatted data.
+
+
