@@ -7,18 +7,18 @@ A local installation of RabbitMQ was setup to run on <code>localhost</code>, por
 Three scripts were then implemented in Python to serve as a 'replica' of the actual test:
 
 <ul>
-  <li><code>rng_pub.py</code> - publishes JSON-formatted messages containing fields:
+  <li><code>rng_pub.py</code> - publishes JSON-formatted messages on topic 'rand' containing fields:
     <ul>
         <li>rand - int</li>
         <li>sequence_number - int</li>
     </ul>
   </li>
   <li>
-    <code>max_pubsub.py</code> - subscribes to 'rand' and stores the integers in a queue, calculating rolling max for 100 last entries-
+    <code>max_pubsub.py</code> - subscribes to topic 'rand' and stores the integers in a queue, calculating rolling max for 100 last entries-
     The result is JSON-formatted and published on topic 'solution'
   </li>
   <li>
-    <code>end_sub.py</code> - subscribes to 'solution' and prints it for verification/testing
+    <code>end_sub.py</code> - subscribes to topic 'solution' and prints it for verification/testing
   </li>
 </ul>
 
