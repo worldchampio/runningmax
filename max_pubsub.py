@@ -5,7 +5,7 @@ import json
 from collections import deque
 
 reconnect_on_failure = True
-randholder = deque([], maxlen=10)
+randholder = deque([], maxlen=100)
 
 def consumer(connection, channel):
     channel.exchange_declare(exchange='topic_logs', exchange_type='topic')
