@@ -4,7 +4,7 @@ import json
 from time import sleep
 
 def make_rng():
-    return randint(0,10)
+    return randint(0,1000)
 
 connection = pika.BlockingConnection(
     pika.ConnectionParameters(host='localhost'))
@@ -13,7 +13,7 @@ channel = connection.channel()
 channel.exchange_declare(exchange='topic_logs', exchange_type='topic')
 routing_key = 'rand'
 
-for i in range(0,1000):
+for i in range(0,10000):
     message = {
         "sequence_number" : int(i),
         "rand" : int(make_rng())
