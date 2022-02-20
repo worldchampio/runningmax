@@ -17,6 +17,12 @@ Three scripts were then implemented in Python to serve as a 'replica' of the act
   <li><code>end_sub.py</code></li>
 </ul>
 
+### Message flow
+
+```
+[ rng_pub.py ] --( rand )--> [max_pubsub.py] --( solution )--> [end_sub.py]
+```
+
 ### RNG publisher
 An integer( _rand_ ) between (0,1000) is created, along with a _sequence\_number_ . A simple for-loop runs N=10000 times, creating messages on the following format:
 
