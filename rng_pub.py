@@ -18,7 +18,6 @@ for i in range(0,10000):
         "sequence_number" : int(i),
         "rand" : int(make_rng())
     }
-    sleep(0.01)
     channel.basic_publish(
         exchange='topic_logs', routing_key=routing_key, body=json.dumps(message))
     #print("Sent %r:%r" % (routing_key, json.dumps(message)))
