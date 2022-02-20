@@ -20,7 +20,7 @@ Three scripts were then implemented in Python to serve as a 'replica' of the act
 ### Message flow
 
 ```
-[ rng_pub.py ] --( rand )--> [max_pubsub.py] --( solution )--> [end_sub.py]
+[ rng_pub.py ] --rand--> [max_pubsub.py] --solution--> [end_sub.py]
 ```
 
 ### RNG publisher
