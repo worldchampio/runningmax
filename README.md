@@ -31,7 +31,7 @@ Three scripts were then implemented in Python to serve as a 'replica' of the act
 ### RNG publisher
 An integer( _rand_ ) between (0,1000) is created, along with a _sequence\_number_ . A simple for-loop runs N=10000 times, creating messages on the following format:
 
-```
+```python
 message = {
     "sequence_number" : int(i),
     "rand" : int(make_rng())
@@ -43,7 +43,7 @@ The message _dict_ is published as JSON (json.dumps()) on topic _rand_.
 ### Running Max subscriber/publisher
 This program subscribes to _rand_, and a _queue_ ( collections.deque) is used as a message container. Incoming messages on _rand_ are decoded with _json.loads()_, and the field _rand_ is extracted and appended to the queue, which has a maximum length of 100. The maximum of this queue is calculated for every new message received, and then published on topic _solution_ on the format:
 
-```
+```python
 body_pub = json.loads(body) #body from subscribing to 'rand'
 
 message_out = {
